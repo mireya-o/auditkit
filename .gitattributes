@@ -1,0 +1,5 @@
+docs/** linguist-documentation
+examples/** linguist-documentation
+data/** linguist-generated
+requirements.lock.txt linguist-generated
+*.pdf binary linguist-generated

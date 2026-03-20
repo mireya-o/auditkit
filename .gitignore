@@ -1,0 +1,45 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dylib
+*.egg-info/
+dist/
+build/
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Data
+data/*
+!data/eval/
+!data/raw/
+data/eval/*
+!data/eval/questions.jsonl
+data/raw/*
+!data/raw/README.md
+!data/raw/eu_ai_act_timeline_implementation.pdf
+!data/raw/nist_ai_600-1_genai_profile.pdf
+!data/raw/nist_ir_8596_cyber_ai_profile_iprd.pdf
+!data/raw/owasp_top10_llm_apps_v2025.pdf
+
+# Generated outputs / indexes
+exports/
+*.sqlite
+*.db
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Streamlit
+.streamlit/secrets.toml

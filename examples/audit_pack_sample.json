@@ -1,0 +1,451 @@
+{
+  "disclaimer": "This audit pack is for internal use only and does not constitute legal or regulatory advice.",
+  "system_card": {
+    "title": "Support Review Surface for Regulated Fintech",
+    "summary": "AI‑assisted drafting and retrieval tool for customer support agents, with mandatory human approval.",
+    "intended_use": [
+      "Draft agent responses",
+      "Retrieve policy/KB info",
+      "Summarize tickets"
+    ],
+    "out_of_scope": [
+      "Automated customer communication",
+      "External data ingestion"
+    ],
+    "users": [
+      "Internal support agents",
+      "Team leads",
+      "Compliance team"
+    ],
+    "data_inputs": [
+      "Customer messages",
+      "Account metadata",
+      "PII"
+    ],
+    "data_outputs": [
+      "Draft replies",
+      "Internal summaries",
+      "Suggested actions"
+    ],
+    "deployment": "Authenticated internal web app with audit logging",
+    "assumptions": [
+      "All users are authenticated",
+      "Data stays within corporate network"
+    ],
+    "limitations": [
+      "No autonomous actions",
+      "Limited to approved documents"
+    ],
+    "human_oversight": [
+      "Agents must approve all outputs"
+    ]
+  },
+  "risk_register": [
+    {
+      "id": "R1",
+      "name": "Data Leakage",
+      "category": "Security",
+      "threat": "Unintentional PII exposure via model output",
+      "impact": "High",
+      "likelihood": "Medium",
+      "severity": "High",
+      "controls": [
+        "Prompt sanitization",
+        "Output filtering"
+      ],
+      "tests": [
+        "Leakage test with synthetic PII"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "id": "R2",
+      "name": "Prompt Injection",
+      "category": "Security",
+      "threat": "Adversary manipulates model behavior",
+      "impact": "High",
+      "likelihood": "Medium",
+      "severity": "High",
+      "controls": [
+        "Input validation",
+        "Sandboxed execution"
+      ],
+      "tests": [
+        "Injection resilience test"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "id": "R3",
+      "name": "Policy Fabrication",
+      "category": "Reliability",
+      "threat": "Model generates incorrect policy statements",
+      "impact": "Medium",
+      "likelihood": "Low",
+      "severity": "Medium",
+      "controls": [
+        "Source citation requirement"
+      ],
+      "tests": [
+        "Citation accuracy test"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "id": "R4",
+      "name": "Compliance Gap",
+      "category": "Compliance",
+      "threat": "Non‑adherence to EU AI Act high‑risk requirements",
+      "impact": "High",
+      "likelihood": "Low",
+      "severity": "High",
+      "controls": [
+        "Regulatory mapping",
+        "Audit trail"
+      ],
+      "tests": [
+        "Compliance audit simulation"
+      ],
+      "references": [
+        "S2"
+      ]
+    },
+    {
+      "id": "R5",
+      "name": "Unauthorized Access",
+      "category": "Security",
+      "threat": "Insider misuse of system",
+      "impact": "High",
+      "likelihood": "Low",
+      "severity": "Medium",
+      "controls": [
+        "Role‑based access control",
+        "Activity monitoring"
+      ],
+      "tests": [
+        "RBAC penetration test"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "id": "R6",
+      "name": "Model Bias",
+      "category": "Privacy",
+      "threat": "Unequal treatment in support responses",
+      "impact": "Medium",
+      "likelihood": "Low",
+      "severity": "Medium",
+      "controls": [
+        "Bias monitoring"
+      ],
+      "tests": [
+        "Fairness audit"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "id": "R7",
+      "name": "Operational Downtime",
+      "category": "Operations",
+      "threat": "Service interruption affecting support",
+      "impact": "High",
+      "likelihood": "Low",
+      "severity": "Medium",
+      "controls": [
+        "Redundancy",
+        "Health checks"
+      ],
+      "tests": [
+        "Failover test"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "id": "R8",
+      "name": "Tool Misuse",
+      "category": "Abuse",
+      "threat": "Model used to execute malicious commands",
+      "impact": "High",
+      "likelihood": "Low",
+      "severity": "High",
+      "controls": [
+        "Tool access restriction"
+      ],
+      "tests": [
+        "Command execution test"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "id": "R9",
+      "name": "Audit Trail Tampering",
+      "category": "Security",
+      "threat": "Alteration of logs to hide incidents",
+      "impact": "High",
+      "likelihood": "Low",
+      "severity": "Medium",
+      "controls": [
+        "Immutable logging"
+      ],
+      "tests": [
+        "Log integrity test"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "id": "R10",
+      "name": "Data Retention Violation",
+      "category": "Compliance",
+      "threat": "Storing PII beyond allowed period",
+      "impact": "High",
+      "likelihood": "Low",
+      "severity": "Medium",
+      "controls": [
+        "Retention policy enforcement"
+      ],
+      "tests": [
+        "Retention audit"
+      ],
+      "references": [
+        "S1"
+      ]
+    }
+  ],
+  "owasp_llm_top10_mapping": [
+    {
+      "risk_id": "R2",
+      "recommended_controls": [
+        "Input validation",
+        "Output filtering"
+      ],
+      "tests": [
+        "Injection resilience test"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "risk_id": "R1",
+      "recommended_controls": [
+        "Prompt sanitization",
+        "Output filtering"
+      ],
+      "tests": [
+        "Leakage test with synthetic PII"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "risk_id": "R8",
+      "recommended_controls": [
+        "Tool access restriction"
+      ],
+      "tests": [
+        "Command execution test"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "risk_id": "R3",
+      "recommended_controls": [
+        "Source citation requirement"
+      ],
+      "tests": [
+        "Citation accuracy test"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "risk_id": "R4",
+      "recommended_controls": [
+        "Regulatory mapping",
+        "Audit trail"
+      ],
+      "tests": [
+        "Compliance audit simulation"
+      ],
+      "references": [
+        "S2"
+      ]
+    },
+    {
+      "risk_id": "R5",
+      "recommended_controls": [
+        "RBAC",
+        "Activity monitoring"
+      ],
+      "tests": [
+        "RBAC penetration test"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "risk_id": "R6",
+      "recommended_controls": [
+        "Bias monitoring"
+      ],
+      "tests": [
+        "Fairness audit"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "risk_id": "R7",
+      "recommended_controls": [
+        "Redundancy",
+        "Health checks"
+      ],
+      "tests": [
+        "Failover test"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "risk_id": "R9",
+      "recommended_controls": [
+        "Immutable logging"
+      ],
+      "tests": [
+        "Log integrity test"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "risk_id": "R10",
+      "recommended_controls": [
+        "Retention policy enforcement"
+      ],
+      "tests": [
+        "Retention audit"
+      ],
+      "references": [
+        "S1"
+      ]
+    }
+  ],
+  "nist_function_mapping": [
+    {
+      "function": "GOVERN",
+      "actions": [
+        "Define AI governance framework"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "function": "MAP",
+      "actions": [
+        "Map risks to controls"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "function": "MEASURE",
+      "actions": [
+        "Assess control effectiveness"
+      ],
+      "references": [
+        "S1"
+      ]
+    },
+    {
+      "function": "MANAGE",
+      "actions": [
+        "Continuous monitoring and improvement"
+      ],
+      "references": [
+        "S1"
+      ]
+    }
+  ],
+  "eu_ai_act_timeline": [
+    {
+      "date": "02 Feb 2025",
+      "milestone": "General provisions apply",
+      "implication": "All AI systems must comply with basic definitions and prohibitions",
+      "references": [
+        "S2"
+      ]
+    },
+    {
+      "date": "02 Aug 2025",
+      "milestone": "Rules for general‑purpose AI apply",
+      "implication": "Providers must establish governance and risk management",
+      "references": [
+        "S2"
+      ]
+    },
+    {
+      "date": "02 Aug 2027",
+      "milestone": "High‑risk AI rules apply to regulated products",
+      "implication": "Support Review Surface must meet high‑risk compliance if classified as such",
+      "references": [
+        "S4"
+      ]
+    }
+  ],
+  "operational_checklist": {
+    "pre_release": [
+      "Verify source citation logic",
+      "Test refusal for illegal requests",
+      "Validate prompt injection defenses",
+      "Confirm audit trail logging",
+      "Ensure human‑in‑the‑loop workflow"
+    ],
+    "post_release": [
+      "Conduct periodic security scans",
+      "Review audit logs weekly",
+      "Update threat model annually",
+      "Maintain SBOM for AI components",
+      "Audit compliance with EU AI Act"
+    ],
+    "monitoring": [
+      "Track model drift metrics",
+      "Monitor for policy violations in outputs",
+      "Log all user interactions",
+      "Alert on anomalous request patterns",
+      "Review model performance quarterly"
+    ],
+    "incident_response": [
+      "Activate incident playbook for data leakage",
+      "Notify compliance team immediately",
+      "Contain affected sessions",
+      "Perform root cause analysis",
+      "Document remediation steps"
+    ]
+  }
+}

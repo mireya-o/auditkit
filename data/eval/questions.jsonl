@@ -1,0 +1,12 @@
+{"id":"Q01","question":"What is prompt injection (LLM01) and why does it matter?","expected_sources":["owasp_top10_llm_apps_v2025.pdf"]}
+{"id":"Q02","question":"List three potential impacts of prompt injection attacks.","expected_sources":["owasp_top10_llm_apps_v2025.pdf"]}
+{"id":"Q03","question":"Explain the difference between direct and indirect prompt injections.","expected_sources":["owasp_top10_llm_apps_v2025.pdf","nist_ai_600-1_genai_profile.pdf"]}
+{"id":"Q04","question":"What is NIST AI 600-1 and what is it a companion resource for?","expected_sources":["nist_ai_600-1_genai_profile.pdf"]}
+{"id":"Q05","question":"According to NIST AI 600-1, what is prompt injection in the context of generative AI systems?","expected_sources":["nist_ai_600-1_genai_profile.pdf"]}
+{"id":"Q06","question":"What is NIST IR 8596 (Cyber AI Profile) intended to provide?","expected_sources":["nist_ir_8596_cyber_ai_profile_iprd.pdf"]}
+{"id":"Q07","question":"Under the EU AI Act timeline, when do rules for general-purpose AI apply and governance must be in place?","expected_sources":["eu_ai_act_timeline_implementation.pdf"]}
+{"id":"Q08","question":"Under the EU AI Act timeline, when do rules for high-risk AI systems in Annex III enter into application?","expected_sources":["eu_ai_act_timeline_implementation.pdf"]}
+{"id":"Q09","question":"Under the EU AI Act timeline, when do rules for high-risk AI embedded in regulated products apply?","expected_sources":["eu_ai_act_timeline_implementation.pdf"]}
+{"id":"Q10","question":"Name one mitigation strategy for prompt injection mentioned in the OWASP LLM Top 10 document.","expected_sources":["owasp_top10_llm_apps_v2025.pdf"]}
+{"id":"Q11","question":"Why might conventional cybersecurity practices need to adapt for generative AI deployments?","expected_sources":["nist_ai_600-1_genai_profile.pdf"]}
+{"id":"Q12","question":"What is the capital of France?","expect_insufficient":true}
